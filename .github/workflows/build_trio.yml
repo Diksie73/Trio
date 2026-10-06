@@ -282,6 +282,7 @@ jobs:
           FASTLANE_KEY: ${{ secrets.FASTLANE_KEY }}
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
           MATCH_PROVISIONING_PROFILE_MAPPING: "true"
+          FASTLANE_SKIP_COOKIES_LOGGING: "true"
 
       # Upload to TestFlight
       - name: Fastlane upload to TestFlight
@@ -294,6 +295,7 @@ jobs:
           FASTLANE_KEY: ${{ secrets.FASTLANE_KEY }}
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
           MATCH_PROVISIONING_PROFILE_MAPPING: "true"
+          FASTLANE_SKIP_COOKIES_LOGGING: "true"
 
       # Upload Build artifacts
       - name: Upload build log, IPA and Symbol artifacts
