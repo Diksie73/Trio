@@ -283,6 +283,7 @@ jobs:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
           MATCH_PROVISIONING_PROFILE_MAPPING: "true"
           FASTLANE_SKIP_COOKIES_LOGGING: "true"
+          PROVISIONING_PROFILE_SPECIFIER: "match AppStore org.nightscout.***.trio"
 
       # Upload to TestFlight
       - name: Fastlane upload to TestFlight
@@ -296,6 +297,7 @@ jobs:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
           MATCH_PROVISIONING_PROFILE_MAPPING: "true"
           FASTLANE_SKIP_COOKIES_LOGGING: "true"
+          PROVISIONING_PROFILE_SPECIFIER: "match AppStore org.nightscout.***.trio"
 
       # Upload Build artifacts
       - name: Upload build log, IPA and Symbol artifacts
