@@ -189,7 +189,7 @@ jobs:
   build:
     name: Build
     needs: [check_certs, check_status]
-    runs-on: macos-26
+    runs-on: macos-15
     permissions:
       contents: write
     if:
@@ -281,6 +281,7 @@ jobs:
           FASTLANE_ISSUER_ID: ${{ secrets.FASTLANE_ISSUER_ID }}
           FASTLANE_KEY: ${{ secrets.FASTLANE_KEY }}
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          MATCH_PROVISIONING_PROFILE_MAPPING: "true"
 
       # Upload to TestFlight
       - name: Fastlane upload to TestFlight
@@ -292,6 +293,7 @@ jobs:
           FASTLANE_ISSUER_ID: ${{ secrets.FASTLANE_ISSUER_ID }}
           FASTLANE_KEY: ${{ secrets.FASTLANE_KEY }}
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          MATCH_PROVISIONING_PROFILE_MAPPING: "true"
 
       # Upload Build artifacts
       - name: Upload build log, IPA and Symbol artifacts
