@@ -283,7 +283,6 @@ jobs:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
           MATCH_PROVISIONING_PROFILE_MAPPING: "true"
           FASTLANE_SKIP_COOKIES_LOGGING: "true"
-          PROVISIONING_PROFILE_SPECIFIER: "match AppStore org.nightscout.***.trio"
           FORCE_VERSION: "1.0.0"
           LATEST_TESTFLIGHT_VERSION: "1.0.0"
 
@@ -299,6 +298,8 @@ jobs:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
           MATCH_PROVISIONING_PROFILE_MAPPING: "true"
           FASTLANE_SKIP_COOKIES_LOGGING: "true"
+          FORCE_VERSION: "1.0.0"
+          LATEST_TESTFLIGHT_VERSION: "1.0.0"
          
 
       # Upload Build artifacts
