@@ -190,6 +190,7 @@ jobs:
     name: Build
     needs: [check_certs, check_status]
     runs-on: macos-15
+    timeout-minutes: 60
     permissions:
       contents: write
     if:
