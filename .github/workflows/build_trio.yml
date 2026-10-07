@@ -201,11 +201,6 @@ jobs:
     steps:
       - name: Select Xcode version
         run: "sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer"
-       - name: Show Xcode information
-        run:|
-        xcodebuild -version
-        xcodebuild -showsdks
-
       
       - name: Checkout Repo for building
         uses: actions/checkout@v5
