@@ -200,7 +200,9 @@ jobs:
         (vars.SCHEDULED_SYNC != 'false' && needs.check_status.outputs.NEW_COMMITS == 'true' )
     steps:
       - name: Select Xcode version
-        run: "sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer"
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: '16.0'
       
       - name: Checkout Repo for building
         uses: actions/checkout@v5
