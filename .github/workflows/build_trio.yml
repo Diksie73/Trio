@@ -189,8 +189,7 @@ jobs:
   build:
     name: Build
     needs: [check_certs, check_status]
-    runs-on: macos-15
-    timeout-minutes: 60
+    runs-on: macos-26
     permissions:
       contents: write
     if:
@@ -200,9 +199,7 @@ jobs:
         (vars.SCHEDULED_SYNC != 'false' && needs.check_status.outputs.NEW_COMMITS == 'true' )
     steps:
       - name: Select Xcode version
-        uses: maxim-lobanov/setup-xcode@v1
-        with:
-          xcode-version: '16.0'
+        run: "sudo xcode-select --switch /Applications/Xcode_26.5.app/Contents/Developer"
       
       - name: Checkout Repo for building
         uses: actions/checkout@v5
@@ -284,11 +281,6 @@ jobs:
           FASTLANE_ISSUER_ID: ${{ secrets.FASTLANE_ISSUER_ID }}
           FASTLANE_KEY: ${{ secrets.FASTLANE_KEY }}
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-          MATCH_PROVISIONING_PROFILE_MAPPING: "true"
-          FASTLANE_SKIP_COOKIES_LOGGING: "true"
-          FORCE_VERSION: "1.0.0"
-          LATEST_TESTFLIGHT_VERSION: "1.0.0"
-          FASTLANE_DISABLE_APP_STORE_CONNECT_API: "true"
 
       # Upload to TestFlight
       - name: Fastlane upload to TestFlight
@@ -300,12 +292,6 @@ jobs:
           FASTLANE_ISSUER_ID: ${{ secrets.FASTLANE_ISSUER_ID }}
           FASTLANE_KEY: ${{ secrets.FASTLANE_KEY }}
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-          MATCH_PROVISIONING_PROFILE_MAPPING: "true"
-          FASTLANE_SKIP_COOKIES_LOGGING: "true"
-          FORCE_VERSION: "1.0.0"
-          LATEST_TESTFLIGHT_VERSION: "1.0.0"
-          FASTLANE_DISABLE_APP_STORE_CONNECT_API: "true"
-         
 
       # Upload Build artifacts
       - name: Upload build log, IPA and Symbol artifacts
